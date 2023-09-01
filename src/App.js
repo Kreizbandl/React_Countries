@@ -3,7 +3,6 @@ import Contact from './Contact/Contact';
 import Home from './Home/Home';
 import NavBar from './Navbar/NavBar';
 import CountriesList from './countries-list/Countries-list';
-/* import MainContainer from './MainContainer'; */
 
 function App() {
   let Component
@@ -22,7 +21,6 @@ function App() {
     <div className="App">
       <NavBar/>
       <Component/>
-      {/* <MainContainer/> */}
     </div>
   );
 }
