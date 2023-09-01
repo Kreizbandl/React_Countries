@@ -1,3 +1,20 @@
 .countries-list {
     padding: 1em;
 }
+.card {
+    width: 200px;
+    border-radius: 10px;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+}
+.card img {
+    width: auto;
+    height: 80px;
+}
+.card h2 {
+    max-width: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

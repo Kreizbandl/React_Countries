@@ -1,28 +1,33 @@
 /* import React from 'react'; */
 import './Countries-list.css';
-import CountryCard from '../Country-card/Country-card';
-
+/* import CountryCard from '../Country-card/Country-card'; */
+import jsonCountries from '../countries.json';
 
 function CountriesList () {
 
-    const countries = ["aus", "maus", "haus", "straus"];
+    //sort countries
+    const sortedJsonCountries = jsonCountries.sort((a,b) => {
+        return a.name.common.localeCompare(b.name.common);
+    })
 
-    let listOfCountries = [];
-
-    countries.forEach((country,index) => {
-        listOfCountries.push(
-            <div>
-                <h1>Name</h1>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/255px-Flag_of_Austria.svg.png"/>
+    //create cards foreach
+    const countries = sortedJsonCountries.map((country, index) => {
+        return (
+            <div className="card" key={index}>
+                {/* TODO href */}
+                <a href="/">
+                    <h2>{ country.name.common }</h2>
+                    <img alt={ country.flags.alt } src={ country.flags.png }></img>
+                </a>
             </div>
-        );  
-    });
+        )
+    })
 
+    //display cards in bigger container
     return(
         <div className="countries-list">
             <h1>CountriesList</h1>
-            <div>{ listOfCountries }</div>
-
+            <div>{ countries }</div>
         </div>
     )
 }
