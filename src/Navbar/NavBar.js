@@ -10,6 +10,12 @@ function NavBar () {
 
             <ul>
                 <li>
+                    <label for="search">Search: </label>
+                    <input type="text" id="search" name="search"/>
+                    {/* TODO add search logic */}
+                    <a href='/'>Search</a>
+                </li>
+                <li>
                     <a href='/countries-list'>All Countries</a>
                 </li>
                 <li>
@@ -17,17 +23,6 @@ function NavBar () {
                 </li>
             </ul>
         </nav>
-        /* <div className='NavBar'>
-            <a href='#'>
-                <img alt="logo" src='../logo.png'/>
-            </a>
-
-                <input/>
-                <button>Search</button>
-                <button>All Countries</button>
-                <button>Contact</button>
-            
-        </div> */
     )
 }
 
