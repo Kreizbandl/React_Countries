@@ -23,7 +23,8 @@ function NavBar () {
                         }}/>
                         
                         {/* TODO add search logic href={'/countries-list/' + searchTerm}  */}
-                        <a href="#">Search</a>
+                        {/* <a href="/countries-list/:searchTerm">Search</a> */}
+                        <Link to={`/countries-list/${searchTerm}`}>Search</Link>
                     </li>
                     <li>
                         <Link to='/countries-list'>All Countries</Link>

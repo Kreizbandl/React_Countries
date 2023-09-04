@@ -35,6 +35,8 @@ function App() {
               </Route>
               <Route path="/countries-list" element={<CountriesList/>}>
               </Route>
+              <Route path="/countries-list/:searchTerm" element={<CountriesList/>}>
+              </Route>
               <Route path="/contact" element={<Contact/>}>
               </Route>
 
