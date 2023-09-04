@@ -13,13 +13,10 @@ function CountriesList () {
     //create cards foreach
     const countries = sortedJsonCountries.map((country, index) => {
         return (
-            <div className="card" key={index}>
-                {/* TODO href */}
-                <a href="/">
-                    <h2>{ country.name.common }</h2>
-                    <img alt={ country.flags.alt } src={ country.flags.png }></img>
-                </a>
-            </div>
+            <a href="/" className="card" key={index}>
+                <h2>{ country.name.common }</h2>
+                <img alt={ country.flags.alt } src={ country.flags.png }></img>
+            </a>
         )
     })
 
@@ -27,7 +24,7 @@ function CountriesList () {
     return(
         <div className="countries-list">
             <h1>CountriesList</h1>
-            <div>{ countries }</div>
+            <div className="country-cards">{ countries }</div>
         </div>
     )
 }
