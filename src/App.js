@@ -38,7 +38,7 @@ function App() {
               <Route path="/contact" element={<Contact/>}>
               </Route>
 
-              <Route path="/country-detail/:country" element={<CountryDetail/>}>
+              <Route path="/country-detail/:countryName" element={<CountryDetail/>}>
               </Route>
             
           {/* </div> */}

@@ -3,11 +3,17 @@ import './Country-detail.css';
 import jsonCountries from '../countries.json';
 
 function CountryDetail () {
-    const country = useParams();
+    const countryName = useParams();
+
+    // get corresponding country details
+    const x = jsonCountries.find(country => country.name.common === countryName.countryName);
+    console.log(x);
 
     return(
         <div className="country-detail">
-            <h1>{country.country}</h1>
+            <h1>{ x.name.common }</h1>
+            <img alt={x.flags.alt} src={x.flags.png}/>
+            <p>Population: { x.population }</p>
         </div>
     )
 }
