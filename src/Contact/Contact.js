@@ -8,17 +8,17 @@ function Contact () {
 
                 {/* TODO better styling + remove divs */}
                 <div>
-                    <label for="name">Name: </label>
+                    <label forhtml="name">Name: </label>
                     <input type="text" id="name" name="name"/>
                 </div>
 
                 <div>
-                    <label for="email">Email: </label>
+                    <label forhtml="email">Email: </label>
                     <input type="text" id="email" name="email"/>
                 </div>
 
                 <div>
-                    <label for="message">Message: </label>
+                    <label forhtml="message">Message: </label>
                     <textarea type="text" id="message" name="message"></textarea>
                 </div>
 

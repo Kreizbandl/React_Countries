@@ -2,6 +2,8 @@
 import './Countries-list.css';
 /* import CountryCard from '../Country-card/Country-card'; */
 import jsonCountries from '../countries.json';
+import { Outlet, Link } from "react-router-dom";
+
 
 function CountriesList () {
 
@@ -13,10 +15,10 @@ function CountriesList () {
     //create cards foreach
     const countries = sortedJsonCountries.map((country, index) => {
         return (
-            <a href="/" className="card" key={index}>
+            <Link to={`/country-detail/${country.name.common}`} className="card" key={index}>
                 <h2>{ country.name.common }</h2>
                 <img alt={ country.flags.alt } src={ country.flags.png }></img>
-            </a>
+            </Link>
         )
     })
 
