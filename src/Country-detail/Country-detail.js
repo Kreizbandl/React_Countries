@@ -12,7 +12,11 @@ function CountryDetail () {
     return(
         <div className="country-detail">
             <h1>{ x.name.common }</h1>
-            <img alt={x.flags.alt} src={x.flags.png}/>
+            { x.flags.alt ? (
+                    <img alt={ x.flags.alt } src={ x.flags.png }></img>
+                ) : (
+                    <img alt={ 'Flag of country ' + x.name.common } src={ x.flags.png }></img>
+                )}
             <p>Population: { x.population }</p>
         </div>
     )

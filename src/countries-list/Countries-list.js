@@ -33,7 +33,11 @@ function CountriesList () {
         return (
             <Link to={`/country-detail/${country.name.common}`} className="card" key={index}>
                 <h2>{ country.name.common }</h2>
-                <img alt={ country.flags.alt } src={ country.flags.png }></img>
+                { country.flags.alt ? (
+                    <img alt={ country.flags.alt } src={ country.flags.png }></img>
+                ) : (
+                    <img alt={ 'Flag of country ' + country.name.common } src={ country.flags.png }></img>
+                )}
             </Link>
         )
     })
