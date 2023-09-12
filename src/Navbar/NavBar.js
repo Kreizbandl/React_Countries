@@ -1,11 +1,15 @@
 import React from 'react';
 import './NavBar.css';
-import { Outlet, Link } from "react-router-dom";
-
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 function NavBar () {
 
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = React.useState('');
+
+    const navigateToSearch = (searchTerm) => {
+        navigate(`/countries-list/${searchTerm}`);
+    };
 
     return(
         <>
@@ -17,14 +21,22 @@ function NavBar () {
 
                 <ul>
                     <li>
-                        <label htmlFor="search">Search: </label>
-                        <input type="text" id="search" name="search" value={searchTerm} onChange={event => {
-                            setSearchTerm(event.target.value);
-                        }}/>
-                        
-                        {/* TODO add search logic href={'/countries-list/' + searchTerm}  */}
-                        {/* <a href="/countries-list/:searchTerm">Search</a> */}
-                        <Link to={`/countries-list/${searchTerm}`}>Search</Link>
+                        <input 
+                            type="text" 
+                            id="search" 
+                            name="search" 
+                            aria-label="Enter a country to search for" 
+                            value={searchTerm} onChange={event => {
+                                setSearchTerm(event.target.value);
+                            }}
+                            onKeyDown={event => {
+                                if(event.key === 'Enter' && searchTerm){
+                                    navigateToSearch(searchTerm);
+                                }
+                            }}    
+                        />
+
+                        <Link to={searchTerm ? `/countries-list/${searchTerm}` : null}>Search</Link>
                     </li>
                     <li>
                         <Link to='/countries-list'>All Countries</Link>
