@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 function CountriesList () {
     const searchTerm = useParams();
-    
+    var heading = 'All Countries';
+
     //sort countries
     var sortedJsonCountries = jsonCountries.sort((a,b) => {
         return a.name.common.localeCompare(b.name.common);
@@ -15,6 +16,7 @@ function CountriesList () {
 
     // if searchTerm is set only show corresponding countries
     if(searchTerm.searchTerm !== undefined){
+        heading = 'Found Countries for ' + searchTerm.searchTerm;
         // tmp variable for matching countries
         var tmpCountries = sortedJsonCountries;
         // empty variable for already sorted countries
@@ -25,6 +27,9 @@ function CountriesList () {
                 sortedJsonCountries.push(country);
             }
         });
+        if(sortedJsonCountries.length === 0){
+            heading = 'Nothing found for ' + searchTerm.searchTerm;
+        }
     }
 
 
@@ -45,7 +50,7 @@ function CountriesList () {
     //display cards in bigger container
     return(
         <div className="countries-list">
-            <h1>CountriesList</h1>
+            <h1>{ heading }</h1>
             <div className="country-cards">{ countries }</div>
         </div>
     )
