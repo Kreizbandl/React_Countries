@@ -5,19 +5,19 @@ import jsonCountries from '../countries.json';
 function CountryDetail () {
     const countryName = useParams();
 
-    // get corresponding country details
-    const x = jsonCountries.find(country => country.name.common === countryName.countryName);
-    console.log(x);
+    /* Finden der Länderinformationen mittels Suchbegriff */
+    const country = jsonCountries.find(country => country.name.common === countryName.countryName);
 
     return(
         <div className="country-detail">
-            <h1>{ x.name.common }</h1>
-            { x.flags.alt ? (
-                    <img alt={ x.flags.alt } src={ x.flags.png }></img>
+            {/* Informationen eines Landes mit Bild mit alternativem Text */}
+            <h1>{ country.name.common }</h1>
+            { country.flags.alt ? (
+                    <img alt={ country.flags.alt } src={ country.flags.png }></img>
                 ) : (
-                    <img alt={ 'Flag of country ' + x.name.common } src={ x.flags.png }></img>
+                    <img alt={ 'Flag of country ' + country.name.common } src={ country.flags.png }></img>
                 )}
-            <p>Population: { x.population }</p>
+            <p>Population: { country.population }</p>
         </div>
     )
 }

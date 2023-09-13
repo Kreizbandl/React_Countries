@@ -9,35 +9,37 @@ function CountriesList () {
     const searchTerm = useParams();
     var heading = 'All Countries';
 
-    //sort countries
+    /* Sortiert Länder alphabetisch */
     var sortedJsonCountries = jsonCountries.sort((a,b) => {
         return a.name.common.localeCompare(b.name.common);
     })
 
-    // if searchTerm is set only show corresponding countries
+    /* Zeigt nur die entsprechenden Länder, wenn ein Suchbegriff vorhanden */
     if(searchTerm.searchTerm !== undefined){
         heading = 'Found Countries for ' + searchTerm.searchTerm;
-        // tmp variable for matching countries
         var tmpCountries = sortedJsonCountries;
-        // empty variable for already sorted countries
         sortedJsonCountries = [];
-        // only use correct countries
+        /* Verwende nur passende Länder */
         tmpCountries.forEach(country => {
             if(country.name.common.includes(searchTerm.searchTerm)){
                 sortedJsonCountries.push(country);
             }
         });
+        /* Zeigt Fehlermeldung, wenn keine Länder gefunden wurden */
         if(sortedJsonCountries.length === 0){
             heading = 'Nothing found for ' + searchTerm.searchTerm;
         }
     }
 
 
-    //create cards foreach
+    /* Erstellt eine Karte für jedes Land */
     const countries = sortedJsonCountries.map((country, index) => {
         return (
-            <Link to={`/country-detail/${country.name.common}`} className="card" key={index} aria-label={`Got to detail screen of ${ country.name.common }`}>
+            /* Link zur Detailansicht des Landes mit Label */
+            <Link to={`/country-detail/${country.name.common}`} className="card" key={index} 
+                aria-label={`Go to detail screen of ${ country.name.common }`}>
                 <h2>{ country.name.common }</h2>
+                {/* Bild mit alternativem Text */}
                 { country.flags.alt ? (
                     <img alt={ country.flags.alt } src={ country.flags.png }></img>
                 ) : (
@@ -47,7 +49,6 @@ function CountriesList () {
         )
     })
 
-    //display cards in bigger container
     return(
         <div className="countries-list">
             <h1>{ heading }</h1>

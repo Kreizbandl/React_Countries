@@ -7,45 +7,38 @@ function NavBar () {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = React.useState('');
 
-    const navigateToSearch = (searchTerm) => {
-        navigate(`/countries-list/${searchTerm}`);
-    };
-
     return(
         <>
+            {/* Navigationsmenü */}
             <nav className='NavBar'>
+                {/* Logo-Link mit beschreibendem Label und alternativem Text */}
                 <Link to="/">
-                    <img alt="logo" src='../logo.png'/>
+                    <img alt="Logo of the website all-countries" src='../logo.png'/>
                 </Link>
-                
-
                 <ul>
                     <li>
-                        <input 
-                            type="text" 
-                            id="search" 
-                            name="search" 
-                            aria-label="Enter a country to search for" 
-                            value={searchTerm} onChange={event => {
-                                setSearchTerm(event.target.value);
-                            }}
-                            onKeyDown={event => {
-                                if(event.key === 'Enter' && searchTerm){
-                                    navigateToSearch(searchTerm);
-                                }
-                            }}    
+                        {/* Eingabefeld für die Suche mit beschreibendem Label und auslösbar über die Enter-Taste */}
+                        <input type="text" id="search" name="search" 
+                            aria-label="Enter a country to search for" value={searchTerm} 
+                            onChange={event => {setSearchTerm(event.target.value);}}
+                            onKeyDown={event => {if(event.key === 'Enter' && searchTerm){
+                                navigate(`/countries-list/${searchTerm}`)}}}    
                         />
-
-                        <Link to={searchTerm ? `/countries-list/${searchTerm}` : null} aria-label="Search for Countries">Search</Link>
+                        {/* Link zum Auslösen der Suche mit beschreibendem Label */}
+                        <Link to={searchTerm ? `/countries-list/${searchTerm}` : null} 
+                            aria-label="Search for Countries">Search</Link>
                     </li>
                     <li>
+                        {/* Link zur Liste alle Länder mit beschreibendem Label */}
                         <Link to='/countries-list' aria-label="Go to all countries screen">All Countries</Link>
                     </li>
                     <li>
+                        {/* Link zum Kontaktformular mit beschreibendem Label */}
                         <Link to='/contact' aria-label="Go to the contact form">Contact</Link>
                     </li>
                 </ul>
             </nav>
+            {/* Dynamische Einbindung der Seiten */}
             <Outlet />
         </>
     )

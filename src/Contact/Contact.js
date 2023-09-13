@@ -3,27 +3,27 @@ import './Contact.css';
 function Contact () {
     return(
         <div className="contact">
+            {/* Überschrift */}
             <h1>Feedback Form</h1>
+            {/* Feedback Formular */}
             <form>
-
-                {/* TODO better styling + remove divs */}
+                {/* Eingabefeld für den Namen mit beschreibendem Label */}
                 <div>
                     <label forhtml="name">Name: </label>
                     <input type="text" id="name" name="name" aria-label="Enter your name"/>
                 </div>
-
+                {/* Eingabefeld für die Email mit beschreibendem Label */}
                 <div>
                     <label forhtml="email">Email: </label>
                     <input type="text" id="email" name="email" aria-label="Enter your email"/>
                 </div>
-
+                {/* Textbereich für die Nachricht mit beschreibendem Label */}
                 <div>
                     <label forhtml="message">Message: </label>
                     <textarea type="text" id="message" name="message" aria-label="Enter a message"></textarea>
                 </div>
-
+                {/* Button zum Absenden des Formulars mit beschreibendem Label */}
                 <button type="submit" aria-label="Submit">Submit</button>
-
             </form>
         </div>
     )
