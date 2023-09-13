@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import './Countries-list.css';
 /* import CountryCard from '../Country-card/Country-card'; */
 import jsonCountries from '../countries.json';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function CountriesList () {
@@ -31,7 +31,7 @@ function CountriesList () {
     //create cards foreach
     const countries = sortedJsonCountries.map((country, index) => {
         return (
-            <Link to={`/country-detail/${country.name.common}`} className="card" key={index}>
+            <Link to={`/country-detail/${country.name.common}`} className="card" key={index} aria-label={`Got to detail screen of ${ country.name.common }`}>
                 <h2>{ country.name.common }</h2>
                 { country.flags.alt ? (
                     <img alt={ country.flags.alt } src={ country.flags.png }></img>

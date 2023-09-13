@@ -36,13 +36,13 @@ function NavBar () {
                             }}    
                         />
 
-                        <Link to={searchTerm ? `/countries-list/${searchTerm}` : null}>Search</Link>
+                        <Link to={searchTerm ? `/countries-list/${searchTerm}` : null} aria-label="Search for Countries">Search</Link>
                     </li>
                     <li>
-                        <Link to='/countries-list'>All Countries</Link>
+                        <Link to='/countries-list' aria-label="Go to all countries screen">All Countries</Link>
                     </li>
                     <li>
-                        <Link to='/contact'>Contact</Link>
+                        <Link to='/contact' aria-label="Go to the contact form">Contact</Link>
                     </li>
                 </ul>
             </nav>
