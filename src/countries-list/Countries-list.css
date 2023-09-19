@@ -1,8 +1,10 @@
 .countries-list {
     padding: 1em;
 }
+
 .card {
-    width: 200px;
+    padding: 0.5em;
+    width: 350px;
     margin: 0.5em;
     border-radius: 10px;
     border-color: grey;
@@ -11,21 +13,17 @@
     text-decoration: none;
     color: black;
 }
+
 .card img {
     width: auto;
-    height: 80px;
+    height: 120px;
 }
+
 .card h2 {
-    max-width: 160px;
+    width: auto;
     margin-left: 0.5em;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
-/* .card a {
-    text-decoration: none;
-    color: black;
-} */
+
 .country-cards {
     display: flex;
     flex-wrap: wrap;

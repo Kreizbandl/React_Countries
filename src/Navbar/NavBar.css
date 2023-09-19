@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    vertical-align: middle;
     padding: 0 1rem;
 }
 
@@ -16,8 +17,21 @@
     display: flex;
     gap: 1rem;
 }
-
-.NavBar a {
+.nav-link {
+    display: block;
+    padding: 5px 5px 0px 3px;
+    border-radius: 5px;
+}
+.NavBar ul a {
+    height: 100%;
     color: inherit;
     text-decoration: none;
+}
+
+#search-button {
+    margin-left: 10px;
+}
+/* .active class gibt es von haus aus, wird aufgerufen, wenn ein navlink actie ist */
+ul a.active {
+    background-color: #C1C1C1;
 }
