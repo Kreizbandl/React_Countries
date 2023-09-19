@@ -3,7 +3,7 @@ import './App.css';
 import Contact from './Contact/Contact';
 import Home from './Home/Home';
 import NavBar from './Navbar/NavBar';
-import CountriesList from './countries-list/Countries-list';
+import CountriesList from './Countries-list/Countries-list';
 import CountryDetail from './Country-detail/Country-detail';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       {/* Navigationsmenü */}
       <NavBar />
 
-      <div className='main'>
+      <main className='main'>
         <Routes>
           {/* Startseite */}
           <Route path="/" element={<Home />}></Route>
@@ -24,7 +24,7 @@ function App() {
           {/* Route zur Detailsansicht für ein bestimmtes Land */}
           <Route path="/country-detail/:countryName" element={<CountryDetail />}></Route>
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }

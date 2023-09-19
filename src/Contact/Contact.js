@@ -24,7 +24,6 @@ function Contact() {
                         {/* Eingabefeld für den Namen mit beschreibendem Label */}
                         <div>
                             <label forhtml="name">Name:
-                                {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
                                 <input type="text" id="name" name="name" aria-label="Enter your name"
                                     aria-required="true" autoFocus value={name}
                                     onChange={(e) => setName(e.target.value)}
