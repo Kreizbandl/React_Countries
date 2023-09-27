@@ -12,12 +12,12 @@ function NavBar() {
             {/* Navigationsmenü */}
             <nav className='NavBar'>
                 {/* Logo-Link mit beschreibendem Label und alternativem Text */}
-                <Link className='logo-link' to="/">
+                <Link className='logo-link' to="/" aria-label="Go to home screen">
                     <img alt="Logo of the website all-countries" src='../logo.png' />
                 </Link>
                 <ul>
                     <li>
-                        {/* Eingabefeld für die Suche mit beschreibendem Label und auslösbar über die Enter-Taste */}
+                        {/* Eingabefeld für die Suche mit beschreibendem Label */}
                         <input type="text" id="search" name="search"
                             aria-label="Enter a country to search for" value={searchTerm}
                             onChange={event => { setSearchTerm(event.target.value); }}
@@ -33,9 +33,6 @@ function NavBar() {
                     </li>
                     <li>
                         {/* Link zur Liste alle Länder mit beschreibendem Label */}
-                        {/* NavLink achtet auch auf accessibiility,When a NavLink is active it will automatically apply
-                         <a aria-current="page"> to the underlying anchor tag. See aria-current on MDN. 
-                         (https://reactrouter.com/en/main/components/nav-link) end = exact*/}
                         <NavLink className='nav-link'
                             to='/countries-list' end aria-label="Go to all countries screen">All Countries</NavLink>
                     </li>

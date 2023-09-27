@@ -57,18 +57,27 @@ function CountriesList() {
     })
 
     /* Setzt `elementSet` auf `true`, wenn das `firstElementRef`-Objekt auf ein Element in der Liste verweist */
+    /* useEffect(() => {
+        if (firstElementRef.current) {
+            setElementSet(true);
+        }
+    }, [firstElementRef]); */
+
+    /* Fokus auf das erste Element nach dem Rendern der Ansicht */
+    /* useEffect(() => {
+        if (elementSet) {
+            firstElementRef.current.focus();
+        }
+    }, [elementSet]); */
+
     useEffect(() => {
         if (firstElementRef.current) {
             setElementSet(true);
         }
-    }, [firstElementRef]);
-
-    /* Fokus auf das erste Element nach dem Rendern der Ansicht */
-    useEffect(() => {
         if (elementSet) {
             firstElementRef.current.focus();
         }
-    }, [elementSet]);
+    }, [firstElementRef, elementSet]);
 
     return (
         <div className="countries-list">

@@ -25,7 +25,7 @@ function Contact() {
                         <div>
                             <label forhtml="name">Name:
                                 <input type="text" id="name" name="name" aria-label="Enter your name"
-                                    aria-required="true" autoFocus value={name}
+                                    required autoFocus value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     onBlur={() => {
                                         const nameIsEmpty = name === '';
@@ -39,7 +39,7 @@ function Contact() {
                         <div>
                             <label forhtml="email">Email:
                                 <input type="text" id="email" name="email" aria-label="Enter your email"
-                                    aria-required="true" value={email}
+                                    required value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     onBlur={() => {
                                         const emailIsEmpty = email === '';
@@ -52,7 +52,7 @@ function Contact() {
                         <div>
                             <label forhtml="message">Message:
                                 <textarea type="text" id="message" name="message" aria-label="Enter a message"
-                                    aria-required="true" value={message}
+                                    required value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     onBlur={() => {
                                         const messageIsEmpty = message === '';
